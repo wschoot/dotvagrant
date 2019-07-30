@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: true
+  vars:
+    motd: |
+      Run:
+      ansible-playbook --connection=local -i localhost, dots/setupdots.yml
+
+  tasks:
+    - name: deps
+      package:
+        name:
+          - ansible
+          - python
+          - git
+        state: present
+
+    - name: Copy using inline content
+      copy:
+        content: "{{ motd }}"
+        dest: /etc/motd
+
+    - name: clone the repo
+      git:
+        repo: 'https://github.com/wschoot/dots'
+        dest: ~/dots
+        version: HEAD
+      become: false
