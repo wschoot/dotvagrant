@@ -22,9 +22,9 @@ Vagrant.configure("2") do |config|
 		ubuntu.vm.hostname = "ubuntu.local"
   end
 
-  config.vm.define "centos" do |centos|
-		centos.vm.box = "centos/7"
-		centos.vm.hostname = "centos.local"
+  config.vm.define "centos7" do |centos7|
+		centos7.vm.box = "centos/7"
+		centos7.vm.hostname = "centos7.local"
   end
 
   config.vm.provision :ansible do |ansible|
