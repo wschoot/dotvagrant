@@ -5,6 +5,7 @@
     motd: |
       Run:
       ansible-playbook --connection=local -i localhost, dots/setupdots.yml
+      ansible-playbook --connection=local -i localhost, dots/copydots.yml -e gitemail=wouter@schoot.org -e 'gitname="Wouter Schoot"'
 
   tasks:
     - name: deps
